@@ -90,5 +90,4 @@ def divide(division_num, names=None, *things):
         
     
 
-yes = seperate_random(3, 0, None, 'foo', 'fi', 'fy', 'fum', 'shrek')
-print(yes)
+
