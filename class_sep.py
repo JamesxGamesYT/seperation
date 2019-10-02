@@ -86,8 +86,60 @@ def seperate_random(division_num, min_num=0, names=None, *things):
     return seperations
 
 def divide(division_num, names=None, *things):
-    pass
-        
+    seperations = {}
+    if len(names) != len(things):
+        while True:
+            continueon = input('Names given do not match up with divisions. Extra numbers may be used or names not used. Continue? (y/n)')
+            if continueon == 'n':
+                raise KeyboardInterrupt
+            elif continueon == 'y':
+                break
+            else:
+                pass
+    try: 
+        min_num = len(things) // division_num
+    except ZeroDivisionError:
+        return 'Can\'t divide items by zero!'
+    except Type Error:
+        return "Values not in correct format. Check your division_num and things arguments."
+    num = 0
+    while num < division_num:
+        command = 'list' + str(num) + '= []'
+        exec(command)
+        command = 'x = len(list' + str(num) + ')'
+        exec(command)
+        things = list(things)
+        if x < min_num:
+            which = randint(0, len(things)-1)
+            addition = things.pop(which)
+            command = 'list' + str(num) + '.append(addition)'
+            exec(command)
+    for thing in things:
+        which = randint(0, division_num-1)
+        command = 'list' + str(which) + '.append(thing)'
+        exec(command)
+    if names:
+        while num <= division_num-1:
+            if len(names) >= division_num:
+                sep = 'list' + str(num)
+                command = 'seperations[names[num]] = list' + str(num)
+                exec(command)
+            else:
+                if num >= len(names):
+                    command = 'seperations[(num - (len(names)-1))] = list' + str(num)
+                    exec(command)
+                else:
+                    command = 'seperations[names[num]] = list' + str(num)
+                    exec(command)
+            num += 1
+    else:
+        while num <= division_num-1:
+            sep = 'list' + str(num)
+            command = 'seperations[num] = list' + str(num)
+            exec(command)
+            num += 1
+    return seperations
+      
     
 
 
