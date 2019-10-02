@@ -1,6 +1,6 @@
 from random import randint
 
-def seperate_random(division_num, min_num=0, names=None, *things):
+def seperate_random(division_num, min_num=0, names=None, specific=None, *things):
     '''
     Splits the things in tuple 'things' into multiple lists at random. Returns a dictionary of lists.
     A "min_num" argument specifies the minimum number of things in each list, unless the number
@@ -85,7 +85,7 @@ def seperate_random(division_num, min_num=0, names=None, *things):
             num += 1
     return seperations
 
-def divide(division_num, names=None, *things):
+def divide(division_num, names=None, specific=None, *things):
     seperations = {}
     if len(names) != len(things):
         while True:
