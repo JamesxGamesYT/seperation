@@ -100,7 +100,7 @@ def divide(division_num, names=None, specific=None, *things):
         min_num = len(things) // division_num
     except ZeroDivisionError:
         return 'Can\'t divide items by zero!'
-    except Type Error:
+    except TypeError:
         return "Values not in correct format. Check your division_num and things arguments."
     num = 0
     while num < division_num:
